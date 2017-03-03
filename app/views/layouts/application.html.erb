@@ -22,44 +22,17 @@
         </main>
     </div>
     <script>
-        callback = function initTracking() {
-            if(currentPage == undefined){
-                var currentPage = null;
-            }
+      if(currentPage == undefined){
+          var currentPage = null;
+      }
 
-            setInterval(function(){
-                if (currentPage != window.location.href){
-                    currentPage = window.location.href;
-                    UserTrack.push(UserTrack.readCookie('guid'));
-                }
+      setInterval(function(){
+          if (currentPage != window.location.href){
+              currentPage = window.location.href;
+              UserTrack.push(UserTrack.readCookie('guid'));
+          }
 
-            }, 100);
-        }
-
-        document.onload = loadScript('/assets/userTrack.self-83781d3cab88ec4a696b3390883b2b9c674fdc06250ffe9d124cf3cfee4767c4.js?body=1', callback)
-        function loadScript(url, callback){
-            console.log("loadscript");
-            var script = document.createElement("script")
-            script.type = "text/javascript";
-
-            if (script.readyState){  //IE
-                script.onreadystatechange = function(){
-                    if (script.readyState == "loaded" ||
-                        script.readyState == "complete"){
-                        script.onreadystatechange = null;
-                        callback();
-                    }
-                };
-            } else {  //Others
-                script.onload = function(){
-                    callback();
-                };
-            }
-
-            script.src = url;
-            document.getElementsByTagName("head")[0].appendChild(script);
-        }
-
+      }, 100);
     </script>
   </body>
 </html>
