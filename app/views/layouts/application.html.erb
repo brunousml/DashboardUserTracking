@@ -30,13 +30,8 @@
             setInterval(function(){
                 if (currentPage != window.location.href){
                     currentPage = window.location.href;
-//                console.log("nv2 - " + currentPage);
                     UserTrack.push(UserTrack.readCookie('guid'));
                 }
-
-//            console.log(currentPage != window.location.href);
-//            console.log("window " + window.location.href);
-//            console.log("variable " + currentPage);
 
             }, 100);
         }
