@@ -20,7 +20,7 @@
             },
 
             /***
-             * this function generates the uuid
+             * this function generates the guid
              ***/
             guid: function () {
                 function s4() {
@@ -51,60 +51,39 @@
                 return null;
             },
 
-            push:function () {
+            push:function (id) {
+                console.log("push: " + id);
 
-                console.log(UserTrack.readCookie('uuid'));
+                // Data to send
+                var data = JSON.stringify({
+                    'guid':id,
+                    'datetime': new Date().getTime(),
+                    'url': document.URL
+                })
 
-                // ajax call to api
+                // Ajax Call
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("POST", "/usertracks.json", true);
+                xhttp.setRequestHeader("Content-Type", "application/json");
+                xhttp.send(data);
+
             }
         };
         return UserTrack;
     }
-    
-    function push() {
-        setTimeout(function(){
-            UserTrack.push()
-        }, 3000);
-    }
 
     // Define globally if it doesn't already exist
     if(typeof(UserTrack) === 'undefined'){
+        // Define the UserTrack library globally
         window.UserTrack = define_library();
 
-        push();
+        // If do not exists guid in cookies we create it
+        if(UserTrack.readCookie('guid') === null){
+            UserTrack.createCookie('guid', UserTrack.guid(), 10);
+        }
     }
     else{
-        console.log("UserTrack already defined.");
+        // Warning
+        console.log("[WARNING] UserTrack already defined.");
     }
 })(window);
-
-
-// TODO: Move this code below to the right place.
-
-/***
- *  This function generates set all cookies necessarily to our application.
- *
- *  guid = generate a unique identifier to visitant
- *  url = Track the Urls accessed
- *  datetime = Date and time of access
- *
- ***/
-function setCookies() {
-    // Log
-    console.log("Call setCookie");
-
-    // Set up
-    var id = UserTrack.guid();
-    var expire_days = 10;
-    var now = new Date().getTime();
-
-    // Add cookies
-    UserTrack.createCookie('uuid', id, expire_days);
-    UserTrack.createCookie('url', document.URL, expire_days);
-    UserTrack.createCookie('datetime', now, expire_days);
-}
-
-//////////// Create Cookies ////////////////
-(function() {
-    UserTrack.createCookie('uuid', UserTrack.uuid, 10);
-})();
