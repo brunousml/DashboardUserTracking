@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Guid:</strong>
+  <%= @usertrack.guid %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @usertrack.url %>
+</p>
+
+<p>
+  <strong>Datetime:</strong>
+  <%= @usertrack.datetime %>
+</p>
+
+<%= link_to 'Edit', edit_usertrack_path(@usertrack) %> |
+<%= link_to 'Back', usertracks_path %>
