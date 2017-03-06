@@ -21,18 +21,5 @@
           </section>
         </main>
     </div>
-    <script>
-      if(currentPage == undefined){
-          var currentPage = null;
-      }
-
-      setInterval(function(){
-          if (currentPage != window.location.href){
-              currentPage = window.location.href;
-              UserTrack.push(UserTrack.readCookie('guid'));
-          }
-
-      }, 100);
-    </script>
   </body>
 </html>
