@@ -1,3 +1,5 @@
+all: migration start
+
 migration:
 	@echo "***********************"
 	@echo "* START MIGRATIONS    *"
