@@ -129,18 +129,18 @@
 			<!-- Tracking JS -->
 			<script src="assets/js/tracking.js"></script>
 			<script type="text/javascript">
+				// Tracking.JS //
 				if(currentPage == undefined){var currentPage = null;}
 		        setInterval(function(){
 		            if (currentPage != window.location.href){
-						
-						console.log("tracking: " + Tracking.readCookie('guid'));
-
 		                currentPage = window.location.href;
 		                Tracking.push(Tracking.readCookie('guid'), "http://localhost:3000/usertracks.json");
 		            }
 
 		        }, 100);
 
+
+				//	Create Contact Ajax //
 				$('#contact_form').submit(function (e) {
 					e.preventDefault();
 

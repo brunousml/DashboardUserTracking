@@ -555,9 +555,6 @@ print 'It took ' + i + ' iterations to sort the deck.';
 				if(currentPage == undefined){var currentPage = null;}
 		        setInterval(function(){
 		            if (currentPage != window.location.href){
-						
-						console.log("tracking: " + Tracking.readCookie('guid'));
-
 		                currentPage = window.location.href;
 		                Tracking.push(Tracking.readCookie('guid'), "http://localhost:3000/usertracks.json");
 		            }
