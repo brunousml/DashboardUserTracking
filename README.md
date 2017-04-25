@@ -1,23 +1,30 @@
-# userTracking
+# Dashboard to User Tracking
 
-Dashoboard System
+Start up Dashboard Project
+
+## Run with Docker
+```
+docker build -t dashboard . 
+
+docker run -it -p 3000:3000 dashboard
+```
 
 ## Automatic Start Up Project
 
 Execute this command on project directory
-```bash 
+```
 make
  ```
  
 ## Manual Start Up Project
 
 ### Step I: Migrations
-```bash
+```
 rails db:migrate
 ```
  
 ### Step II: Start server
-```bash
+```
 rails server
 ```
 
