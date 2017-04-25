@@ -1,1 +1,18 @@
-<h1>Home</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Nome</th>
+    <th>Contato</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.id %></td>
+        <td><%= contact.name.capitalize %></td>
+        <td><%= contact.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

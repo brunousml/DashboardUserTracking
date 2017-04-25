@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
   	@contacts = Contact.all
-  	@title = "Site Exemplo"
+  	@title = "Contatos"
   end
 end

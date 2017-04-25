@@ -6,6 +6,7 @@ class UsertracksController < ApplicationController
   # GET /usertracks.json
   def index
     @usertracks = Usertrack.all.limit(50).order('id desc')
+    @title = "User Tracks"
   end
 
   # GET /usertracks/1
